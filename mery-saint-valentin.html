@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamza 💖 Maryem</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding-top: 70px;
+            color: white;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.6em;
+            margin-bottom: 40px;
+        }
+
+        button {
+            font-size: 1.3em;
+            padding: 15px 30px;
+            margin: 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff0033;
+            color: white;
+        }
+
+        #no {
+            background-color: #333;
+            color: white;
+            position: absolute;
+        }
+
+        #message {
+            font-size: 2em;
+            margin-top: 40px;
+            display: none;
+        }
+
+        .heart {
+            position: fixed;
+            color: pink;
+            font-size: 20px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            from { top: -10%; }
+            to { top: 110%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🎵 MUSIQUE ROMANTIQUE -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <h1>Mon cher Hamza 💕</h1>
+    <p>
+        Depuis que je t’ai rencontré, mon cœur a choisi 💖<br><br>
+        Acceptes-tu d’être mon <strong>Saint-Valentin</strong><br>
+        aujourd’hui, demain, et pour toujours ? 😘
+    </p>
+
+    <button id="yes" onclick="yesClicked()">OUI mon amour ❤️</button>
+    <button id="no" onmouseover="moveButton()">Non 😅</button>
+
+    <div id="message">
+        💕 YEEEEES 💕<br><br>
+        Tu viens de rendre Maryem<br>
+        la femme la plus heureuse du monde 😍<br><br>
+        Je t’aime Hamza ❤️<br>
+        Joyeuse Saint-Valentin 💘
+    </div>
+
+    <script>
+        function yesClicked() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function moveButton() {
+            const noBtn = document.getElementById("no");
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 150);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        // 💖 PLUIE DE COEURS
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }, 300);
+    </script>
+
+</body>
+</html>
